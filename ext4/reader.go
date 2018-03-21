@@ -42,7 +42,7 @@ func NewReader(s io.ReadSeeker, startBlock, blockCount uint32) (r Reader, err er
 	}
 
 	// fixup for non-64 bit
-	if r.super.FeatureIncompat|FeatureIncompatFlag64Bit == 0 {
+	if r.super.FeatureIncompat&FeatureIncompatFlag64Bit == 0 {
 		r.super.BlocksCountHi = 0
 	}
 
